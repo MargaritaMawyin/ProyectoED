@@ -52,17 +52,7 @@ public class Medico {
     public String toString() {
         return "Medico{" + "nombre=" + nombre + ", apellido=" + apellido + ", especialidad=" + especialidad + '}';
     }
-        public void cargarMedico() throws IOException{
-
-        try {
-            BufferedWriter bfw= new BufferedWriter(new FileWriter(App.pathArchivos+nombre+apellido+".txt"));
-            bfw.write(nombre);
-            bfw.close();
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-}
+        
 }
         
     

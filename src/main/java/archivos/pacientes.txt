@@ -1,0 +1,4 @@
+Juan,Gomez,15,masculino,fiebre
+Maria,Fuentes,22,femenino,vómito
+Carly,Perez,45,femenino,resfrio
+Max,Murrieta,36,masculino,resfrio

@@ -5,8 +5,18 @@ import javafx.fxml.FXML;
 
 public class PrimaryController {
 
+
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("primary");
+        App.setRoot("secondary");
+    }
+    
+         @FXML
+    private void switchToMedico() throws IOException {
+        App.setRoot("registroMedico");
+    }
+         @FXML
+    private void switchToPaciente() throws IOException {
+        App.setRoot("registroPaciente");
     }
 }
