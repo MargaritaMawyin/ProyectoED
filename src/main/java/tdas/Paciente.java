@@ -73,15 +73,20 @@ public class Paciente {
     public String toString() {
         return "Paciente{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", genero=" + genero + ", sintoma=" + sintoma + '}';
     }
-     public static List<Turno> leerProcesos(String nombre){
-        List<Turno> procesos= new LinkedList<>();
+    public String toAchive(){
+        return nombre+","+apellido+","+edad+","+genero+","+sintoma;
+    }
+    
+    
+     public static List<Paciente> verPacientes(String nombre){
+        List<Paciente> procesos= new LinkedList<>();
         try(Scanner sc = new Scanner(new File (nombre))){
         
         while(sc.hasNextLine()){
             String line=sc.nextLine();
-            String[] tokens =line.split("\\|");
-            
-            
+            String[] tokens =line.split(",");
+            Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], tokens[4]);
+            procesos.add(p);
         }
         
     }
@@ -91,6 +96,7 @@ public class Paciente {
         return procesos;
                 
     }
+    
     
     
 }

@@ -10,7 +10,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.MedicoController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="label" stylesheets="@../../../../java/css/estilos.css">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registro del medicos" textAlignment="CENTER" wrappingWidth="601.13671875" />
             <GridPane alignment="BOTTOM_LEFT" prefHeight="227.0" prefWidth="600.0">
@@ -32,7 +32,7 @@
                   <TextField fx:id="apellidoM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="nombreM" prefHeight="25.0" prefWidth="271.0" GridPane.columnIndex="1" />
                   <TextField fx:id="especialidadM" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="guardarM" mnemonicParsing="false" onAction="#handle" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Button mnemonicParsing="false" onAction="#switchToPrimary" text="Regresar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>

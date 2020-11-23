@@ -7,9 +7,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="336.0" prefWidth="441.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.SecondaryController">
+<VBox alignment="CENTER" prefHeight="336.0" prefWidth="441.0" spacing="20.0" stylesheets="@../../../../java/css/estilos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.SecondaryController">
    <children>
       <GridPane fx:id="zonaVideos" alignment="TOP_CENTER" gridLinesVisible="true" prefHeight="158.0" prefWidth="401.0">
         <columnConstraints>
@@ -31,6 +32,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PUESTO" textAlignment="CENTER" wrappingWidth="82.744140625" />
                </children>
             </VBox>
+            <MediaView fx:id="zonaVideo" fitHeight="200.0" fitWidth="200.0" />
          </children>
       </GridPane>
       <Button fx:id="primaryButton" onAction="#switchToPrimary" text="regresar" />

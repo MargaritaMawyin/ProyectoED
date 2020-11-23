@@ -52,6 +52,9 @@ public class Medico {
     public String toString() {
         return "Medico{" + "nombre=" + nombre + ", apellido=" + apellido + ", especialidad=" + especialidad + '}';
     }
+    public String toAchive(){
+        return nombre+","+apellido+","+especialidad;
+    }
         
 }
         
