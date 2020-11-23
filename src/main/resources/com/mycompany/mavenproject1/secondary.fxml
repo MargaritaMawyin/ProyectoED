@@ -32,7 +32,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PUESTO" textAlignment="CENTER" wrappingWidth="82.744140625" />
                </children>
             </VBox>
-            <MediaView fx:id="zonaVideo" fitHeight="200.0" fitWidth="200.0" />
+            <MediaView fx:id="zonaVideo" fitHeight="200.0" fitWidth="200.0" onError="#verVideo" />
          </children>
       </GridPane>
       <Button fx:id="primaryButton" onAction="#switchToPrimary" text="regresar" />

@@ -17,18 +17,18 @@ import java.util.Queue;
 public class Turno {
     
     public void turno(Queue<Paciente> paciente ,List<Medico> medico ){
-        Queue<Paciente> pacientes =  Paciente.verPacientes(App.pathArchivos+"pacientes.txt");
-        pacientes.sort((Paciente p1,Paciente p2)->p1.getEdad()-p2.getEdad());
-        
-        
-        Queue<Paciente> cola= new LinkedList<Paciente>();
-        cola.addAll(pacientes);
-        while(!cola.isEmpty()){
-            Paciente p = cola.offer(pacientes);
-        }
-        while (!cola.isEmpty()){
-            Paciente p = cola.offer(pacientes);
-        }
-    
+//        Queue<Paciente> pacientes =  Paciente.verPacientes(App.pathArchivos+"pacientes.txt");
+//        pacientes.sort((Paciente p1,Paciente p2)->p1.getEdad()-p2.getEdad());
+//        
+//        
+//        Queue<Paciente> cola= new LinkedList<Paciente>();
+//        cola.addAll(pacientes);
+//        while(!cola.isEmpty()){
+//            Paciente p = cola.offer(pacientes);
+//        }
+//        while (!cola.isEmpty()){
+//            Paciente p = cola.offer(pacientes);
+//        }
+//    
     }
 }
