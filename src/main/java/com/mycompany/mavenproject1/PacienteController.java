@@ -57,7 +57,7 @@ public class PacienteController {
         String edad = edadP.getText();
         String genero = generoP.getText();
         String sintoma = sintomaP.getText();
-        Paciente p = new Paciente(nombre, apellido, Integer.parseInt(edad), genero, sintoma);
+        Paciente p = new Paciente(nombre, apellido, Integer.parseInt(edad), genero, Integer.parseInt(sintoma));
         bw.write(p.toAchive());
         bw.newLine();
      }

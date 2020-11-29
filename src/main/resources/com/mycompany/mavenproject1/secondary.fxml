@@ -35,6 +35,7 @@
             <MediaView fx:id="zonaVideo" fitHeight="200.0" fitWidth="200.0" onError="#verVideo" />
          </children>
       </GridPane>
+      <Button mnemonicParsing="false" onAction="#verVideo" text="PlayVideos" />
       <Button fx:id="primaryButton" onAction="#switchToPrimary" text="regresar" />
       <Label prefHeight="17.0" prefWidth="348.0" text="Horario da Atencion diponible: Lunes a Viernes 10 a 18 h" />
    </children>

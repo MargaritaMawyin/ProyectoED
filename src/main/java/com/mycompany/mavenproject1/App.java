@@ -18,6 +18,7 @@ public class App extends Application {
         public static String pathArchivos = "src/main/java/archivos/";
         public static String pathVideos = "src/main/java/videos/";
         public static String pathCss = "src/main/java/css/";
+        public static String v = "videos";
 
 
     private static Scene scene;

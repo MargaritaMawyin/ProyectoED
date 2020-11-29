@@ -17,6 +17,7 @@ public class Medico {
     private String nombre;
     private String apellido;
     private String especialidad;
+    
 
     public Medico(String nombre, String apellido, String especialidad) {
         this.nombre = nombre;

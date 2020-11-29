@@ -19,9 +19,9 @@ public class Paciente {
     private String apellido; 
     private int edad;
     private String genero; 
-    private String sintoma; 
+    private int sintoma; 
 
-    public Paciente(String nombre, String apellido, int edad, String genero, String sintoma) {
+    public Paciente(String nombre, String apellido, int edad, String genero, int sintoma) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -45,7 +45,7 @@ public class Paciente {
         return genero;
     }
 
-    public String getSintoma() {
+    public int getSintoma() {
         return sintoma;
     }
 
@@ -65,7 +65,7 @@ public class Paciente {
         this.genero = genero;
     }
 
-    public void setSintoma(String sintoma) {
+    public void setSintoma(int sintoma) {
         this.sintoma = sintoma;
     }
 
@@ -85,7 +85,8 @@ public class Paciente {
         while(sc.hasNextLine()){
             String line=sc.nextLine();
             String[] tokens =line.split(",");
-            Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], tokens[4]);
+            
+            Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], Integer.parseInt(tokens[4].split("\\|")[1]));
             procesos.add(p);
         }
         
@@ -96,6 +97,7 @@ public class Paciente {
         return procesos;
                 
     }
+    
     
     
     

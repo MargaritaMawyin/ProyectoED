@@ -5,10 +5,8 @@ com\mycompany\mavenproject1\CircularLinkedList.class
 com\mycompany\mavenproject1\PacienteController.class
 tdas\Medico.class
 com\mycompany\mavenproject1\MedicoController.class
-com\mycompany\mavenproject1\SecondaryController.class
 com\mycompany\mavenproject1\CircularLinkedList$Node.class
 tdas\Paciente.class
 module-info.class
-com\mycompany\mavenproject1\Videos.class
 tdas\Turno.class
 tdas\Puesto.class
