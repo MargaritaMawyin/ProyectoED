@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\JOVEN EJEMPLAR\Documents\NetBeansProjects\ProyectoED\src\main\java\com\mycompany\mavenproject1\PacienteController.java
 C:\Users\JOVEN EJEMPLAR\Documents\NetBeansProjects\ProyectoED\src\main\java\com\mycompany\mavenproject1\App.java
 C:\Users\JOVEN EJEMPLAR\Documents\NetBeansProjects\ProyectoED\src\main\java\tdas\circularSimplyLinkedList.java
@@ -13,3 +14,20 @@ C:\Users\JOVEN EJEMPLAR\Documents\NetBeansProjects\ProyectoED\src\main\java\mode
 C:\Users\JOVEN EJEMPLAR\Documents\NetBeansProjects\ProyectoED\src\main\java\module-info.java
 C:\Users\JOVEN EJEMPLAR\Documents\NetBeansProjects\ProyectoED\src\main\java\tdas\circularDoublyLinkedList.java
 C:\Users\JOVEN EJEMPLAR\Documents\NetBeansProjects\ProyectoED\src\main\java\com\mycompany\mavenproject1\SecondaryController.java
+=======
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\com\mycompany\mavenproject1\PrimaryController.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\tdas\Puesto.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\module-info.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\tdas\List.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\tdas\Video.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\tdas\Medico.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\com\mycompany\mavenproject1\PacienteController.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\modelo\exceptions\ValorNuloException.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\com\mycompany\mavenproject1\MedicoController.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\com\mycompany\mavenproject1\SecondaryController.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\com\mycompany\mavenproject1\ConfiguracionController.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\com\mycompany\mavenproject1\App.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\tdas\Paciente.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\tdas\circularDoublyLinkedList.java
+C:\Users\DOCTOR\Desktop\jheg\ProyectoED\src\main\java\tdas\Turno.java
+>>>>>>> 23db4ff5d0ae7e3620adb942edd5f4eb0b0c0b3a

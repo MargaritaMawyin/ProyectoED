@@ -1,2 +1,5 @@
-Victor,Romero,Fisioterapeuta
-Gabriel,Lopez,Pediatra
+Victor,Romero,Pediatra,false
+Gabriel,Lopez,Psicoterapeuta,true
+Yaneth,Sanchez,Dentista,false
+Roberto,Faraday,Profesional,true
+Luis,Yepez,Dentista,true

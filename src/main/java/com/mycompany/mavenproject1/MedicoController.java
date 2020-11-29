@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import tdas.Medico;
@@ -41,34 +42,44 @@ public class MedicoController {
     }
     public void handle(Event e){
         guardarM.setOnMouseClicked(eh->{
-            try {
-                guardarMedicos();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            guardarMedicos();
         });
     }
              
-     public void guardarMedicos() throws IOException{
-     try ( BufferedWriter bw = new BufferedWriter(new FileWriter (App.pathArchivos + "pacientes.txt",true))){
+    public void guardarMedicos(){
         String nombre = nombreM.getText();
         String apellido = apellidoM.getText();
         String especialidad = especialidadM.getText();
-        Medico m = new Medico(nombre, apellido, especialidad);
-        bw.write(m.toAchive());
-        bw.newLine();
-     }
-        
-     catch(Exception e){
-                 
-                 }
-     nombreM.clear();
-     apellidoM.clear();
-     especialidadM.clear();
-     
-         App.setRoot("secondary");
-         
-     }
-    
-    
+        if ((nombre.equals("")) || (apellido.equals("")) || (especialidad.equals(""))){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Falta de Información");
+            alert.setTitle("Información Incorrecta");
+            alert.setContentText("Debe ingresar toda la información solicitada");
+            alert.showAndWait();
+        } else {
+            try ( BufferedWriter bw = new BufferedWriter(new FileWriter (App.pathArchivos + "medicos.txt",true))){
+            
+                Medico m = new Medico(nombre, apellido, especialidad);
+                bw.write(m.toArchivo());
+                bw.newLine();
+                bw.close();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Registro Exitoso");
+                alert.setTitle("Información");
+                alert.setContentText("Creación de Médico exitoso");
+                alert.showAndWait();
+                App.setRoot("secondary");
+            }
+            catch (IOException es){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Falta de Información");
+                alert.setTitle("Información Incorrecta");
+                alert.setContentText("Debe ingresar información correcta");
+                alert.showAndWait();
+            }
+            nombreM.clear();
+            apellidoM.clear();
+            especialidadM.clear();
+        }
+    }
 }
