@@ -1,10 +1,10 @@
-
 package tdas;
 
 import com.mycompany.mavenproject1.App;
-import com.mycompany.mavenproject1.CircularLinkedList;
-import com.mycompany.mavenproject1.List;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
 import javafx.event.Event;
@@ -18,19 +18,20 @@ import javafx.scene.media.MediaView;
  * @author margo
  */
 public class Videos {
-    
-    private List<Videos> path;
-        @FXML
+
+    private circularDoublyLinkedList<Video> listVideos;
+    @FXML
     private MediaView zonaVideo;
+
+    private MediaPlayer mediaPlayer;
     
-    private MediaPlayer mediaPlayer;  
-//    
-//    public void handle(Event e){
-//        zonaVideo.setOnError(eh->{
-//            verVideo();
-//        });
-//    }
-    
+    @FXML
+    public void handle(Event e){
+        zonaVideo.setOnError(eh->{
+            verVideos();           
+        });
+    }
+
 //    public void verVideo(){
 //        mediaPlayer = new MediaPlayer(new Media(this.getClass().getResource(pathVideo).toExternalForm()));
 //        mediaPlayer.setAutoPlay(true);
@@ -38,26 +39,43 @@ public class Videos {
 //        
 //               
 //    }
-    public void leerVideos(){
-        CircularLinkedList<String> videosAReproducir =  new CircularLinkedList<String>() {};
-        try(Scanner sc= new Scanner(new File(App.pathVideos))){
-        
-        String line = sc.nextLine();
-        videosAReproducir.addFirst(line);
-        
-        mediaPlayer = new MediaPlayer(new Media(this.getClass().getResource(line).toExternalForm()));
-        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setOnEndOfMedia(() -> { 
-        });
-        zonaVideo.setMediaPlayer(mediaPlayer);
-
+    public void leerVideos() {
+        try (BufferedReader inputStream = new BufferedReader(new FileReader(App.pathVideos))) {
+            String line = null;
+            while(inputStream.readLine()!=null){
+                listVideos.addFirst(new Video(line.trim()));
+            }
+        } catch (Exception e) {
+            System.out.println("Archivo no  se pudo abrir "+e.getMessage());
         }
-        
-        catch(Exception e){
-            System.out.println("Archivo no  se pudo abrir");
-            
-        }
-        
     }
+    
+    public void verVideos(){
+        leerVideos();
+        Iterator<Video> it = listVideos.iterator();
+        Video iVideo = it.next();
+        zonaVideo = iVideo.mostrarVideo();
+        mediaPlayer = zonaVideo.getMediaPlayer();
+        mediaPlayer.setOnEndOfMedia(()->{
+            System.out.println("SE ACABO UN VIDEO");
+        });
+    }
+    private void verVideos(Iterator<Video> it){
+        Video iVideo = it.next();
+        zonaVideo = iVideo.mostrarVideo();
+        mediaPlayer = zonaVideo.getMediaPlayer();
+        mediaPlayer.setOnEndOfMedia(()->{
+            verVideos(it);
+        });
+    }
+
+    public MediaView getZonaVideo() {
+        return zonaVideo;
+    }
+
+    public void setZonaVideo(MediaView zonaVideo) {
+        this.zonaVideo = zonaVideo;
+    }
+    
     
 }

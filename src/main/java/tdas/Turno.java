@@ -6,7 +6,6 @@
 package tdas;
 
 import com.mycompany.mavenproject1.App;
-import com.mycompany.mavenproject1.List;
 import java.util.LinkedList;
 import java.util.Queue;
 
