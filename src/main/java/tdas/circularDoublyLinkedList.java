@@ -5,6 +5,7 @@
  */
 package tdas;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import modelo.exceptions.ValorNuloException;
 
@@ -15,7 +16,6 @@ import modelo.exceptions.ValorNuloException;
 public class circularDoublyLinkedList<E> implements List<E>, Iterable<E>{
     private Node<E> last;
     private int current;
-    private boolean stop = false;
     
     public circularDoublyLinkedList(){
         last=null;
@@ -237,26 +237,29 @@ public class circularDoublyLinkedList<E> implements List<E>, Iterable<E>{
         @Override
     public Iterator<E> iterator() {
         Iterator<E> it = new Iterator<E>() {
-            private Node<E> i = last;
+            private Node<E> j = last;
             
             @Override
             public boolean hasNext() {
-                return !stop;
+                return j!=null;
             }
 
             @Override
-            public E next() {
-                E tmp = i.data;
-                i = i.next;
+            public E next() {                
+                E tmp = j.data;
+//                try {
+//                    System.out.println("Hilo espera 1 segundo");
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+                j = j.next;
                 return tmp;
             }
         };        
         return it;
     }
-    
-    public void finalizarIterator(){
-        stop = true;
-    }
+
     
     public E get(E element) throws ValorNuloException{
         if(isEmpty() || element == null) throw new ValorNuloException("Lista vacia");

@@ -10,7 +10,6 @@ tdas\List.class
 com\mycompany\mavenproject1\SecondaryController.class
 tdas\circularDoublyLinkedList.class
 tdas\circularDoublyLinkedList$Node.class
-tdas\Videos.class
 tdas\Paciente.class
 module-info.class
 modelo\exceptions\ValorNuloException.class

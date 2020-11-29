@@ -24,16 +24,11 @@ public class Video {
         this.path = path;
     }
     
-    @FXML
     public MediaView mostrarVideo(){
         Media media = new Media(new File(path).toURI().toString());
         MediaPlayer medPlayer = new MediaPlayer(media);
-        MediaView medView = new MediaView(medPlayer);
-//        DoubleProperty mvWidth = medView.fitWidthProperty();
-//        DoubleProperty mvHeight = medView.fitHeightProperty();
-//        mvWidth.bind(Bindings.selectDouble(medView.sceneProperty(), "width"));
-//        mvHeight.bind(Bindings.selectDouble(medView.sceneProperty(), "height"));
-        medPlayer.setAutoPlay(true);
+        MediaView medView = new MediaView();
+        medView.setMediaPlayer(medPlayer);
         return medView;
     }
 
