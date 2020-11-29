@@ -1,6 +1,7 @@
-Juan,Gomez,15,masculino,fiebre|0
-Maria,Fuentes,22,femenino,vómito|1
-Carly,Perez,45,femenino,resfrio|3
-Max,Murrieta,36,masculino,congestión nasal|3
-Dana,Pino,10,femenino,vómito|1
-Pedro,Carvajal,masculino,resfrio|3
+Juan,Gomez,15,masculino,0
+Maria,Fuentes,22,femenino,1
+Carly,Perez,45,femenino,3
+Max,Murrieta,36,masculino,3
+Dana,Pino,10,femenino,1
+Pedro,Carvajal,masculino,3
+David,Pacheco,34,masculino,1

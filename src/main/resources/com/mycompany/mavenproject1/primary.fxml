@@ -3,18 +3,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
-
-
-
+<?scenebuilder-stylesheet ../stylesheet1.css?>
 
 <VBox alignment="CENTER" prefHeight="230.0" prefWidth="357.0" spacing="20.0" styleClass="table" stylesheets="@../../../../java/css/estilos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.PrimaryController">
     <children>
       <Button mnemonicParsing="false" onAction="#switchToPaciente" text="Ingresar datos del paciente" />
       <Button fx:id="ingresarDatosMed" mnemonicParsing="false" onAction="#switchToMedico" text="Ingresar datos del médico" />
+      <Button fx:id="ingresarDatosPuestos" mnemonicParsing="false" onAction="#switchToPuesto" text="Configuración de Puestos" />
         <Button fx:id="secondaryButton" onAction="#switchToSecondary" text="ir a Turnos" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 </VBox>
-<?scenebuilder-stylesheet ../stylesheet1.css?>

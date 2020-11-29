@@ -19,5 +19,9 @@ public class PrimaryController {
     private void switchToPaciente() throws IOException {
         App.setRoot("registroPaciente");
     }
+    @FXML
+    private void switchToPuesto() throws IOException {
+        App.setRoot("configuracion");
+    }
     
 }

@@ -86,7 +86,7 @@ public class Paciente {
             String line=sc.nextLine();
             String[] tokens =line.split(",");
             
-            Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], Integer.parseInt(tokens[4].split("\\|")[1]));
+            Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], Integer.parseInt(tokens[4].split(";")[0]));
             procesos.add(p);
         }
         

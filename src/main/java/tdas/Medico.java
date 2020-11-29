@@ -17,13 +17,23 @@ public class Medico {
     private String nombre;
     private String apellido;
     private String especialidad;
+    private boolean asignado;
     
 
     public Medico(String nombre, String apellido, String especialidad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.especialidad = especialidad;
+        this.asignado = false;
     }
+
+    public Medico(String nombre, String apellido, String especialidad, boolean asignado) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.especialidad = especialidad;
+        this.asignado = asignado;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -49,12 +59,23 @@ public class Medico {
         this.especialidad = especialidad;
     }
 
+    public boolean isAsignado() {
+        return asignado;
+    }
+
+    public void setAsignado(boolean asignado) {
+        this.asignado = asignado;
+    }
+    
+
     @Override
     public String toString() {
-        return "Medico{" + "nombre=" + nombre + ", apellido=" + apellido + ", especialidad=" + especialidad + '}';
+        return "Medico{" + "nombre=" + nombre + ", apellido=" + apellido + ", especialidad=" + especialidad + ", asignado=" + asignado + '}';
     }
-    public String toAchive(){
-        return nombre+","+apellido+","+especialidad;
+
+    
+    public String toArchivo(){
+        return nombre+","+apellido+","+especialidad+","+asignado;
     }
         
 }

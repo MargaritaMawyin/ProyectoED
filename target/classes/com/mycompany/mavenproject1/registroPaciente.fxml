@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -29,15 +30,15 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese su nombre: " textAlignment="RIGHT" wrappingWidth="287.87109375" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese su apellido: " textAlignment="RIGHT" wrappingWidth="286.462890625" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese su edad: " textAlignment="RIGHT" wrappingWidth="281.724609375" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese su  genero:" textAlignment="RIGHT" wrappingWidth="284.822265625" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese su sintoma:" textAlignment="RIGHT" wrappingWidth="278.251953125" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione su  género:" textAlignment="RIGHT" wrappingWidth="284.822265625" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione su síntoma:" textAlignment="RIGHT" wrappingWidth="278.251953125" GridPane.rowIndex="4" />
             <TextField fx:id="apellidoP" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="nombreP" prefHeight="25.0" prefWidth="271.0" GridPane.columnIndex="1" />
             <TextField fx:id="edadP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="generoP" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="sintomaP" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button fx:id="guardarP" mnemonicParsing="false" onAction="#handle" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#switchToPrimary" text="Regresar" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ComboBox fx:id="generoP" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="sintomaP" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>

@@ -2,6 +2,7 @@ tdas\circularDoublyLinkedList$1.class
 com\mycompany\mavenproject1\PrimaryController.class
 tdas\Video.class
 com\mycompany\mavenproject1\App.class
+com\mycompany\mavenproject1\ConfiguracionController.class
 com\mycompany\mavenproject1\PacienteController.class
 tdas\Medico.class
 com\mycompany\mavenproject1\MedicoController.class
