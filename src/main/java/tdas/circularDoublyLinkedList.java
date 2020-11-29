@@ -7,6 +7,7 @@ package tdas;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.ListIterator;
 import modelo.exceptions.ValorNuloException;
 
 /**
@@ -234,7 +235,117 @@ public class circularDoublyLinkedList<E> implements List<E>, Iterable<E>{
         return sb.toString();
     }
     
-        @Override
+    private Node<E> getNode(int index) throws ValorNuloException{
+        if(last==null && last.next==null) throw new ValorNuloException("Lista vacía");
+        if(index<0 || index>current) throw new ValorNuloException("Valor fuera de rango");
+        else if(index==current-1) return last;
+        Node<E> nodeFound = last.next;
+        while(index-->0){
+            nodeFound = nodeFound.next;
+        }
+        return nodeFound;
+    }
+    public ListIterator<E> listIterator(int index)throws ValorNuloException{
+        ListIterator<E> lIt = new ListIterator(){
+            private Node<E> i = getNode(index);
+            private int c = index; //variable de control que indica en qué indice se encuentra ubicado el elemento
+            
+            @Override
+            public boolean hasNext() {
+                return i!=null;
+            }
+
+            @Override
+            public Object next() {
+                E tmp = i.data;
+                i = i.next;
+                c++;
+                return tmp;
+            }
+
+            @Override
+            public boolean hasPrevious() {
+                return i!=null;
+            }
+
+            @Override
+            public Object previous() {
+                E tmp = i.data;
+                i = i.previous;
+                c--;
+                return tmp;
+            }
+
+            @Override
+            public int nextIndex() {
+                return c+1;
+            }
+
+            @Override
+            public int previousIndex() {
+                return c-1;
+            }
+
+            @Override
+            public void remove() {
+                if(i!=null){
+                    Node<E> nodeEliminate = i.previous;
+                    System.out.println("VALOR A ELIMINAR: "+nodeEliminate.data);
+                    if (nodeEliminate == last.next) {
+                        removeFirst();
+                        System.out.println("Se remueve first");
+                    }
+                    else{
+                        nodeEliminate.data=null; //HELP GC;
+                        nodeEliminate.previous.next = nodeEliminate.next;
+                        nodeEliminate.next.previous = nodeEliminate.previous;
+                        
+                        nodeEliminate.previous = null;
+                        nodeEliminate.next = null;
+                        
+                        current--;
+                    }
+                }else {
+                    System.out.println("Se eliminará last");
+                    removeLast();
+                }
+            }
+
+            @Override
+            public void set(Object e) {
+                E obj = (E)e;
+                i.previous.data = obj;
+            }
+
+            @Override
+            public void add(Object e) {
+                E data = (E)e;
+                if(i!=null){
+                    Node<E> nodeAct = i.previous;    
+                    if(nodeAct == last.next){
+                        System.out.println("Se agrega al inicio");
+                        addFirst(data);
+                    }else{
+                        Node<E> node = new Node(data);
+
+                        nodeAct.next=node;
+                        i.previous = node;
+
+                        node.previous = nodeAct;
+                        node.next = i;
+
+                        current++;
+                    }
+                }else{
+                    System.out.println("Se agregará elemento al final");
+                    addLast(data);
+                }
+            }
+        };
+        return lIt;
+    }
+    
+    @Override
     public Iterator<E> iterator() {
         Iterator<E> it = new Iterator<E>() {
             private Node<E> j = last;

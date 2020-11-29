@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
@@ -20,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import modelo.exceptions.ValorNuloException;
 
 import tdas.Video;
 import tdas.circularDoublyLinkedList;
@@ -41,20 +43,21 @@ public class SecondaryController {
     @FXML
     private VBox videoBox;
     
-    @FXML
-    private GridPane containerCenter;
 
     private circularDoublyLinkedList<Video> listVideos;
     private Date fecha = new Date();
-    private MediaPlayer mediaPlayer;
 
     @FXML
     public void initialize(){
-        System.out.println("ENTRA A CARGAR LOS VIDEOSSSS!!! \n");
-        leerVideos();      
-        Iterator<Video> it = listVideos.iterator();
-        verVideos(it);
-        this.lblTiempo.setText(fecha.toString());
+        try {
+            System.out.println("ENTRA A CARGAR LOS VIDEOSSSS!!! \n");
+            leerVideos();
+            ListIterator<Video> it = listVideos.listIterator(0);
+            verVideos(it);
+            this.lblTiempo.setText(fecha.toString());
+        } catch (ValorNuloException ex) {
+            ex.printStackTrace();
+        }
     }
 
 
@@ -73,15 +76,19 @@ public class SecondaryController {
         }
     }
 
-    private void verVideos(Iterator<Video> it) {        
+    private void verVideos(ListIterator<Video> it) {        
         MediaView viewVideo = it.next().mostrarVideo();
-        //zonaVideo = viewVideo;
+        zonaVideo = viewVideo;
         zonaVideo.setMediaPlayer(viewVideo.getMediaPlayer());
         zonaVideo.getMediaPlayer().setAutoPlay(true);
         zonaVideo.getMediaPlayer().setOnEndOfMedia(()->{
             System.out.println("SE ACABO UN VIDEO");
             verVideos(it);
         });
+        videoBox.getChildren().clear();
+        zonaVideo.setFitWidth(250);
+        zonaVideo.setFitHeight(200);
+        videoBox.getChildren().add(zonaVideo);
     }
     
     @FXML
