@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import modelo.Puesto;
 import tdas.Paciente;
 
 /**
@@ -23,13 +24,16 @@ public class App extends Application {
     public static String pathCss = "src/main/java/css/";
     public static String v = "videos";
     public static PriorityQueue<Paciente> listaPacientes = new PriorityQueue<>((Paciente p1, Paciente p2)->(p1.getPrioridad()-p2.getPrioridad()));
+    public static List<Puesto> puestosVacios = new LinkedList<>();
     
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        List<Paciente> paciCargados = Paciente.verPacientes("src/main/java/archivos/pacientes.txt");    
+        List<Paciente> paciCargados = Paciente.verPacientes(pathArchivos+"pacientes.txt");    
         listaPacientes.addAll(paciCargados);
+        List<Puesto> puestCargados = Puesto.verPuestos(pathArchivos+"puestosv2.dat");
+        puestosVacios.addAll(puestCargados);
         
         scene = new Scene(loadFXML("primary"), 640, 480);
 //        scene.getStylesheets().clear();

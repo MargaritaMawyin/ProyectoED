@@ -1,5 +1,5 @@
-Victor,Romero,Pediatra,false
+Victor,Romero,Pediatra,true
 Gabriel,Lopez,Psicoterapeuta,true
-Yaneth,Sanchez,Dentista,false
+Yaneth,Sanchez,Dentista,true
 Roberto,Faraday,Profesional,true
 Luis,Yepez,Dentista,true

@@ -36,17 +36,17 @@ public class ConfiguracionController {
     @FXML
     private Button btnEliminar;
     @FXML
-    FlowPane pConfiguracion;
+    private FlowPane pConfiguracion;
     @FXML
-    FlowPane pConfiguracion2;
+    private FlowPane pConfiguracion2;
     
-    Label inicio = new Label();
+    private Label inicio = new Label();
     
-    Button op1 = new Button();
-    Button op2 = new Button();
-    Button op3 = new Button();
-    ArrayList<Puesto> puestos;
-    ArrayList<Medico> medicos;
+    private Button op1 = new Button();
+    private Button op2 = new Button();
+    private Button op3 = new Button();
+    private ArrayList<Puesto> puestos;
+    private ArrayList<Medico> medicos;
     
     @FXML
     private void switchToPrimary() throws IOException {

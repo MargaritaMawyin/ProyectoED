@@ -10,6 +10,7 @@
       <Button mnemonicParsing="false" onAction="#switchToPaciente" text="Ingresar datos del paciente" />
       <Button fx:id="ingresarDatosMed" mnemonicParsing="false" onAction="#switchToMedico" text="Ingresar datos del médico" />
       <Button fx:id="ingresarDatosPuestos" mnemonicParsing="false" onAction="#switchToPuesto" text="Configuración de Puestos" />
+      <Button mnemonicParsing="false" onAction="#switchToPuestoV2" text="Configuracion de Puestos V2.0" />
         <Button fx:id="secondaryButton" onAction="#switchToSecondary" text="ir a Turnos" />
     </children>
     <padding>

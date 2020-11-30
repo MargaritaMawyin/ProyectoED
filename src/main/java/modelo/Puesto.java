@@ -5,11 +5,26 @@
  */
 package modelo;
 
+import com.mycompany.mavenproject1.App;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
+
 /**
  *
  * @author Kevin Chevez pc
  */
-public class Puesto {
+public class Puesto implements Serializable {
+    private static final long serialVersionUID = 777L;
+    
     private Medico medico;
     private Paciente paciente;
     private int numPuesto;
@@ -23,6 +38,10 @@ public class Puesto {
     public Puesto(){
         this.medico = new Medico("General", "Julio", "Tumbaco");
         this.paciente = new Paciente(this, "Carlos", "Román");
+    }
+    
+    public Puesto(int numPuesto){
+        this.numPuesto = numPuesto;
     }
     
     /**
@@ -96,10 +115,63 @@ public class Puesto {
     public String toString() {
         return "Puesto{" + "medico=" + medico.nombre + ", paciente=" + paciente.nombre + ", numPuesto=" + numPuesto + '}';
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 13 * hash + Objects.hashCode(this.medico);
+        hash = 13 * hash + Objects.hashCode(this.paciente);
+        hash = 13 * hash + this.numPuesto;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Puesto other = (Puesto) obj;
+        if (this.numPuesto != other.numPuesto) {
+            return false;
+        }
+        if (!Objects.equals(this.medico, other.medico)) {
+            return false;
+        }
+        if (!Objects.equals(this.paciente, other.paciente)) {
+            return false;
+        }
+        return true;
+    }
     
     
     public String toArchivo(){
         return medico.nombre + ";"+ paciente.nombre + ";" + numPuesto;
+    }
+    
+    
+    
+    public static List<modelo.Puesto> verPuestos(String path) {
+        List<modelo.Puesto> puestos = new LinkedList<>();
+        try(ObjectInputStream file = new ObjectInputStream(new FileInputStream(App.pathArchivos+"puestosv2.dat"))){
+            while(true){
+                Puesto puest = (Puesto)file.readObject();
+                puestos.add(puest);
+            }
+        }catch(FileNotFoundException fe){
+            System.out.println("Afiche no encontrado: "+fe.getMessage());
+        }catch(EOFException eo){
+            System.out.println("Fin de fichero: "+eo.getMessage());
+        }catch(ClassNotFoundException ce){
+            System.out.println("Clase no encontrada: "+ce.getMessage());
+        }catch(IOException io){
+            System.out.println("Error IO: "+io.getMessage());
+        }
+        return puestos;
     }
 }

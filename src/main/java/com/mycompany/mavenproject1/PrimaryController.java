@@ -23,5 +23,9 @@ public class PrimaryController {
     private void switchToPuesto() throws IOException {
         App.setRoot("configuracion");
     }
+    @FXML
+    private void switchToPuestoV2()throws IOException {
+        App.setRoot("puesto");
+    }
     
 }

@@ -108,12 +108,13 @@ public class Paciente {
      public static List<Paciente> verPacientes(String nombre) {
         List<Paciente> procesos = new LinkedList<>();
         try (Scanner sc = new Scanner(new File(nombre))) {
-
+            int i = 1;
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] tokens = line.split(",");
 
                 Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], Integer.parseInt(tokens[4]));
+                p.setTurno("A"+i++);                
                 procesos.add(p);
             }
 
