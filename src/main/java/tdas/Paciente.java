@@ -19,7 +19,10 @@ public class Paciente {
     private String apellido; 
     private int edad;
     private String genero; 
-    private int sintoma; 
+    private int sintoma;
+    private int prioridad;
+    private String turno;
+    private Puesto puesto;
 
     public Paciente(String nombre, String apellido, int edad, String genero, int sintoma) {
         this.nombre = nombre;
@@ -69,6 +72,30 @@ public class Paciente {
         this.sintoma = sintoma;
     }
 
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(int prioridad) {
+        this.prioridad = prioridad;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public Puesto getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(Puesto puesto) {
+        this.puesto = puesto;
+    }
+
     @Override
     public String toString() {
         return "Paciente{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", genero=" + genero + ", sintoma=" + sintoma + '}';
@@ -78,24 +105,23 @@ public class Paciente {
     }
     
     
-     public static List<Paciente> verPacientes(String nombre){
-        List<Paciente> procesos= new LinkedList<>();
-        try(Scanner sc = new Scanner(new File (nombre))){
-        
-        while(sc.hasNextLine()){
-            String line=sc.nextLine();
-            String[] tokens =line.split(",");
-            
-            Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], Integer.parseInt(tokens[4].split(";")[0]));
-            procesos.add(p);
-        }
-        
-    }
-        catch(Exception e){
+     public static List<Paciente> verPacientes(String nombre) {
+        List<Paciente> procesos = new LinkedList<>();
+        try (Scanner sc = new Scanner(new File(nombre))) {
+
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] tokens = line.split(",");
+
+                Paciente p = new Paciente(tokens[0], tokens[1], Integer.parseInt(tokens[2]), tokens[3], Integer.parseInt(tokens[4]));
+                procesos.add(p);
+            }
+
+        } catch (Exception e) {
             System.out.println("Archivo no  se pudo abrir");
         }
         return procesos;
-                
+
     }
     
     

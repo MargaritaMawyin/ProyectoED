@@ -9,7 +9,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
+import tdas.Paciente;
 
 /**
  * JavaFX App
@@ -19,12 +22,15 @@ public class App extends Application {
     public static String pathVideos = "src/main/java/archivos/videos.txt";
     public static String pathCss = "src/main/java/css/";
     public static String v = "videos";
-
-
+    public static PriorityQueue<Paciente> listaPacientes = new PriorityQueue<>((Paciente p1, Paciente p2)->(p1.getPrioridad()-p2.getPrioridad()));
+    
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
+        List<Paciente> paciCargados = Paciente.verPacientes("src/main/java/archivos/pacientes.txt");    
+        listaPacientes.addAll(paciCargados);
+        
         scene = new Scene(loadFXML("primary"), 640, 480);
 //        scene.getStylesheets().clear();
 //file would be set by an file chosser
